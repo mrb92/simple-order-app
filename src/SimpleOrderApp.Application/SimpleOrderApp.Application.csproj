@@ -10,6 +10,7 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.2.2" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.2" />
   </ItemGroup>
 
@@ -20,7 +21,14 @@
 
   <ItemGroup>
     <Folder Include="Common\Services\" />
-    <Folder Include="Orders\Commands\" />
+    <Folder Include="Cottages\Queries\GetCottageFilters\" />
+    <Folder Include="Cottages\Queries\GetCottages\" />
+    <Folder Include="Orders\Commands\CreateOrder\" />
+    <Folder Include="Orders\Queries\GetOrderTypes\" />
+    <Folder Include="Vehicles\Commands\UpdateVehicleOrder\" />
+    <Folder Include="Vehicles\Queries\GetVehicles\" />
+    <Folder Include="Vehicles\Queries\GetVehicleFilters\" />
+    <Folder Include="Vehicles\Queries\GetVehicleOrder\" />
   </ItemGroup>
 
 </Project>

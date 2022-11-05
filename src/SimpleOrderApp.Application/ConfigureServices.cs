@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+
 using SimpleOrderApp.Application.Common.Behaviours;
 using SimpleOrderApp.Common.Services;
 
