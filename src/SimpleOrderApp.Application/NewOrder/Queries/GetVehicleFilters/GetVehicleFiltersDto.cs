@@ -1,6 +1,6 @@
 ﻿using SimpleOrderApp.Domain.Dtos.Common;
 
-namespace SimpleOrderApp.Application.Vehicles.Queries
+namespace SimpleOrderApp.Application.NewOrder.Queries.GetVehicleFilters
 {
     public class GetVehicleFiltersDto
     {

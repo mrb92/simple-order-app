@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SimpleOrderApp.Application.Vehicles.Queries;
+using SimpleOrderApp.Application.NewOrder.Queries.GetVehicleFilters;
 using SimpleOrderApp.Application.Vehicles.Queries.GetVehicleFilters;
 using SimpleOrderApp.Application.Vehicles.Queries.GetVehicles;
 using SimpleOrderApp.WebApi.Base;

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 
 using SimpleOrderApp.Application.Common.Interfaces;
+using SimpleOrderApp.Application.NewOrder.Queries.GetVehicleFilters;
 using SimpleOrderApp.Domain.Dtos.Common;
 using SimpleOrderApp.Domain.Entities.Referentials;
 

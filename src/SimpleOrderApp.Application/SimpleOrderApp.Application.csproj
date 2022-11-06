@@ -22,10 +22,8 @@
 
   <ItemGroup>
     <Folder Include="Common\Services\" />
-    <Folder Include="Cottages\Queries\GetCottageFilters\" />
-    <Folder Include="Cottages\Queries\GetCottages\" />
-    <Folder Include="Vehicles\Commands\UpdateVehicleOrder\" />
-    <Folder Include="Vehicles\Queries\GetVehicleOrder\" />
+    <Folder Include="NewOrder\Queries\GetVehicleOrder\" />
+    <Folder Include="OrderDetail\Dtos\" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using SimpleOrderApp.Common.Extensions;
 
-namespace SimpleOrderApp.Application.Orders.Commands.CreateOrder
+namespace SimpleOrderApp.Application.NewOrder.Commands.Create
 {
     public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
     {

@@ -5,7 +5,7 @@ using SimpleOrderApp.Application.Common.Interfaces;
 using SimpleOrderApp.Domain.Dtos.Common;
 using SimpleOrderApp.Domain.Entities.Referentials;
 
-namespace SimpleOrderApp.Application.Orders.Queries.GetOrderTypes
+namespace SimpleOrderApp.Application.Common.Queries.GetOrderTypes
 {
     public class GetOrderTypesQuery : IRequest<List<KeyValueDto>>
     {

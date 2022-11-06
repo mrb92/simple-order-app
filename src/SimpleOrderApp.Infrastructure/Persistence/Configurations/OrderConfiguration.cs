@@ -13,7 +13,7 @@ namespace SimpleOrderApp.Infrastructure.Persistence.Configurations
 
             builder.Property(e => e.CustomerName).HasMaxLength(250);
 
-            builder.Property(e => e.PhoneNumber).HasMaxLength(150);
+            builder.Property(e => e.CustomerPhoneNumber).HasMaxLength(150);
 
             builder.HasOne(e => e.RefOrderType)
                 .WithMany(e => e.Order)
