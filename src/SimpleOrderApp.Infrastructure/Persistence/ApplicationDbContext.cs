@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+
 using SimpleOrderApp.Application.Common.Interfaces;
 using SimpleOrderApp.Domain.Entities;
 using SimpleOrderApp.Domain.Entities.Referentials;
 using SimpleOrderApp.Infrastructure.Persistence.Configurations.Seeding;
+
 using System.Reflection;
 
 namespace SimpleOrderApp.Infrastructure.Persistence
@@ -24,6 +26,8 @@ namespace SimpleOrderApp.Infrastructure.Persistence
         public virtual DbSet<Vehicle> Vehicle { get; set; }
 
         public virtual DbSet<VehicleOrder> VehicleOrder { get; set; }
+
+        public ApplicationDbContext(DbContextOptions options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

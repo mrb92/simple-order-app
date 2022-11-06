@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using SimpleOrderApp.Application.Common.Interfaces;
 using SimpleOrderApp.Infrastructure.Persistence;
 
 namespace SimpleOrderApp.Infrastructure
@@ -32,6 +33,8 @@ namespace SimpleOrderApp.Infrastructure
                     }
                 )
             );
+
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
             return services;
         }

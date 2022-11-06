@@ -3,6 +3,8 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 using SimpleOrderApp.Application.Common.Behaviours;
+using SimpleOrderApp.Application.Orders.Services;
+using SimpleOrderApp.Application.Orders.Services.Interfaces;
 using SimpleOrderApp.Common.Services;
 
 using System.Reflection;
@@ -14,8 +16,14 @@ namespace SimpleOrderApp.Application
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddInfrastructureServices();
+            services.AddBusinessServices();
 
             return services;
+        }
+
+        private static void AddBusinessServices(this IServiceCollection services)
+        {
+            services.AddScoped<IOrderService, OrderService>();
         }
 
         private static void AddInfrastructureServices(this IServiceCollection services)
