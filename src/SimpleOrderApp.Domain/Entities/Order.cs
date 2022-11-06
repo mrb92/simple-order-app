@@ -20,7 +20,7 @@ namespace SimpleOrderApp.Domain.Entities
 
         public int? CurrencyId { get; set; }
 
-        public decimal? ConvertedTotal { get; set; }
+        public decimal? TotalInForeignCurrency { get; set; }
 
         public int OrderTypeId { get; set; }
 

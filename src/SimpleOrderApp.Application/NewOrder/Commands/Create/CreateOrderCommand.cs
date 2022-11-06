@@ -1,8 +1,7 @@
 ﻿using MediatR;
 
 using SimpleOrderApp.Application.NewOrder.Dtos;
-using SimpleOrderApp.Application.NewOrder.Services.Interfaces;
-using SimpleOrderApp.Domain.Enums.Orders;
+using SimpleOrderApp.Application.OrderTypes.Common.Services;
 
 namespace SimpleOrderApp.Application.NewOrder.Commands.Create
 {
@@ -21,26 +20,16 @@ namespace SimpleOrderApp.Application.NewOrder.Commands.Create
 
     public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, int>
     {
-        private readonly Dictionary<OrderTypeEnum, Func<CreateOrderDto, CancellationToken, Task<int>>>
-            _orderCreatorHandlerMap = new();
+        private readonly IOrderHandlersService _orderHandlersService;
 
-        private readonly ICreateVehicleOrderService _createVehicleOrderService;
-
-        public CreateOrderCommandHandler(ICreateVehicleOrderService createVehicleOrderService)
+        public CreateOrderCommandHandler(IOrderHandlersService orderHandlersService)
         {
-            _createVehicleOrderService = createVehicleOrderService;
-
-            Init();
-        }
-
-        private void Init()
-        {
-            _orderCreatorHandlerMap.Add(OrderTypeEnum.Vehicles, _createVehicleOrderService.Create);
+            _orderHandlersService = orderHandlersService;
         }
 
         public async Task<int> Handle(CreateOrderCommand request, CancellationToken token)
         {
-            var handler = _orderCreatorHandlerMap[(OrderTypeEnum)request.OrderTypeId];
+            var handler = _orderHandlersService.GetOrderCreationHandler(request.OrderTypeId);
 
             var input = new CreateOrderDto
             {

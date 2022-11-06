@@ -1,11 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+
 using SimpleOrderApp.Domain.Entities;
 using SimpleOrderApp.Domain.Entities.Referentials;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleOrderApp.Infrastructure.Persistence.Configurations.Seeding
 {
@@ -16,6 +12,7 @@ namespace SimpleOrderApp.Infrastructure.Persistence.Configurations.Seeding
             SeedRefVehicleType(modelBuilder);
             SeedOrderType(modelBuilder);
             SeedVehicles(modelBuilder);
+            SeedCurrencies(modelBuilder);
         }
 
         private static void SeedRefVehicleType(ModelBuilder modelBuilder)
@@ -25,6 +22,16 @@ namespace SimpleOrderApp.Infrastructure.Persistence.Configurations.Seeding
                 new RefVehicleType { Id = 1, Name = "Truck" },
                 new RefVehicleType { Id = 2, Name = "Minivan" },
                 new RefVehicleType { Id = 3, Name = "Sedan" }
+            );
+        }
+
+        private static void SeedCurrencies(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<RefCurrency>().HasData
+            (
+                new RefCurrency { Id = 1, Name = "Euro", ShortName = "EUR", Symbol = "€" },
+                new RefCurrency { Id = 2, Name = "United States Dollar", ShortName = "USD", Symbol = "$" },
+                new RefCurrency { Id = 3, Name = "Romanian Leu", ShortName = "RON", Symbol = "RON" }
             );
         }
 

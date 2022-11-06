@@ -27,7 +27,7 @@ namespace SimpleOrderApp.Infrastructure.Persistence.Configurations
 
             builder.Property(e => e.Total).HasPrecision(18, 2);
 
-            builder.Property(e => e.ConvertedTotal).HasPrecision(18, 2);
+            builder.Property(e => e.TotalInForeignCurrency).HasPrecision(18, 2);
         }
     }
 }

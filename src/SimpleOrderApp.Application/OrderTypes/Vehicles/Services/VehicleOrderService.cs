@@ -3,17 +3,19 @@
 using SimpleOrderApp.Application.Common.Interfaces;
 using SimpleOrderApp.Application.NewOrder.Dtos;
 using SimpleOrderApp.Application.NewOrder.Services.Interfaces;
+using SimpleOrderApp.Application.OrderDetail.Dtos;
+using SimpleOrderApp.Application.OrderDetail.Queries.GetVehicleOrderDetail;
 using SimpleOrderApp.Domain.Entities;
 using SimpleOrderApp.Domain.Enums.Orders;
 
-namespace SimpleOrderApp.Application.NewOrder.Services
+namespace SimpleOrderApp.Application.OrderTypes.Services
 {
-    public class CreateVehicleOrderService : ICreateVehicleOrderService
+    public class VehicleOrderService : IVehicleOrderService
     {
-        private IApplicationDbContext _context;
-        private ICreateOrderCommonService _createOrderCommonService;
+        private readonly IApplicationDbContext _context;
+        private readonly ICreateOrderCommonService _createOrderCommonService;
 
-        public CreateVehicleOrderService(ICreateOrderCommonService createOrderCommonService,
+        public VehicleOrderService(ICreateOrderCommonService createOrderCommonService,
             IApplicationDbContext context)
         {
             _createOrderCommonService = createOrderCommonService;
@@ -41,6 +43,19 @@ namespace SimpleOrderApp.Application.NewOrder.Services
             await _context.SaveChangesExAsync(token);
 
             return order.Id;
+        }
+
+        public async Task<GetOrderDetailDto> GetOrderDetail(int orderId, CancellationToken token)
+        {
+            var order = await _context.ReadSet<Order>()
+                .Include(o => o.VehicleOrder).Where(o => o.Id == orderId).FirstOrDefaultAsync(token);
+
+            return new GetVehicleOrderDetailDto
+            {
+                Id = order.Id,
+                Title = order.Title,
+                IsTankFull = order.VehicleOrder.IsTankFull
+            };
         }
     }
 }

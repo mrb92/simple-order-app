@@ -21,9 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Services\" />
     <Folder Include="NewOrder\Queries\GetVehicleOrder\" />
-    <Folder Include="OrderDetail\Dtos\" />
+    <Folder Include="OrderDetail\Services\Interfaces\" />
   </ItemGroup>
 
 </Project>

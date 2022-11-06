@@ -3,6 +3,9 @@
 using SimpleOrderApp.Application.Common.Queries.GetOrderTypes;
 using SimpleOrderApp.Application.ListOrder.Queries.List;
 using SimpleOrderApp.Application.NewOrder.Commands.Create;
+using SimpleOrderApp.Application.OrderDetail.Command.UpdateVehicleOrder;
+using SimpleOrderApp.Application.OrderDetail.Dtos;
+using SimpleOrderApp.Application.OrderDetail.Queries.GetOrderDetail;
 using SimpleOrderApp.Domain.Dtos.Common;
 using SimpleOrderApp.WebApi.Base;
 
@@ -31,5 +34,22 @@ namespace SimpleOrderApp.WebApi.Controllers
         {
             return await Mediator.Send(command, token);
         }
+
+        [HttpPut("vehicle-order")]
+        public async Task UpdateOrder(UpdateVehicleOrderCommand command,
+            CancellationToken token)
+        {
+            await Mediator.Send(command, token);
+        }
+
+
+        [HttpGet("{id}")]
+        public async Task<GetOrderDetailDto> GetOrderDetail(int id, int orderTypeId, CancellationToken token)
+        {
+            var query = new GetOrderDetailQuery { Id = id, OrderTypeId = orderTypeId };
+
+            return await Mediator.Send(query);
+        }
+
     }
 }

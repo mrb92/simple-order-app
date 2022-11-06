@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using SimpleOrderApp.Application.Common.Behaviours;
 using SimpleOrderApp.Application.NewOrder.Services;
 using SimpleOrderApp.Application.NewOrder.Services.Interfaces;
+using SimpleOrderApp.Application.OrderTypes.Common.Services;
+using SimpleOrderApp.Application.OrderTypes.Services;
 using SimpleOrderApp.Common.Services;
 
 using System.Reflection;
@@ -24,7 +26,8 @@ namespace SimpleOrderApp.Application
         private static void AddBusinessServices(this IServiceCollection services)
         {
             services.AddScoped<ICreateOrderCommonService, CreateOrderCommonService>();
-            services.AddScoped<ICreateVehicleOrderService, CreateVehicleOrderService>();
+            services.AddScoped<IVehicleOrderService, VehicleOrderService>();
+            services.AddScoped<IOrderHandlersService, OrderHandlersService>();
         }
 
         private static void AddInfrastructureServices(this IServiceCollection services)

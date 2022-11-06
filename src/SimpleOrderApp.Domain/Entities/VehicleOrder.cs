@@ -12,7 +12,7 @@
 
         public decimal PricePerDay { get; set; }
 
-        public decimal? ConvertedPricePerDay { get; set; }
+        public decimal? PriceInForeignCurrencyPerDay { get; set; }
 
         public Vehicle Vehicle { get;set; }
 

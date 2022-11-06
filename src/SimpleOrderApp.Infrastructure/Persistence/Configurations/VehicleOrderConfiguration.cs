@@ -24,7 +24,7 @@ namespace SimpleOrderApp.Infrastructure.Persistence.Configurations
 
             builder.Property(e => e.PricePerDay).HasPrecision(18, 2);
 
-            builder.Property(e => e.ConvertedPricePerDay).HasPrecision(18, 2);
+            builder.Property(e => e.PriceInForeignCurrencyPerDay).HasPrecision(18, 2);
         }
     }
 }
