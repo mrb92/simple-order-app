@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { environment } from '../environments/environment';
 import { BaseUrlInterceptor } from './custom-core/interceptors/base-url.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BaseUrlInterceptor } from './custom-core/interceptors/base-url.intercep
     BrowserModule,
     SharedModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: "base_apiUrl", useValue: environment.apiUrl },

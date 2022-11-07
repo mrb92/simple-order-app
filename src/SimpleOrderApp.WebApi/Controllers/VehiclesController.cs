@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+
 using SimpleOrderApp.Application.NewOrder.Queries.GetVehicleFilters;
 using SimpleOrderApp.Application.Vehicles.Queries.GetVehicleFilters;
 using SimpleOrderApp.Application.Vehicles.Queries.GetVehicles;
@@ -8,15 +9,16 @@ namespace SimpleOrderApp.WebApi.Controllers
 {
     [ApiController]
     [ApiExplorerSettings(IgnoreApi = false)]
+    [Route("api/vehicles")]
     public class VehiclesController : BaseApiController
     {
-        [HttpGet("vehicle-filters")]
+        [HttpGet("filters")]
         public async Task<GetVehicleFiltersDto> GetVehicleFilters([FromQuery] GetVehicleFiltersQuery query)
         {
             return await Mediator.Send(query);
         }
 
-        [HttpGet("vehicles")]
+        [HttpGet]
         public async Task<GetVehiclesDto> GetVehicles([FromQuery] GetVehiclesQuery query)
         {
             return await Mediator.Send(query);

@@ -1,0 +1,24 @@
+<ng-container [formGroup]="form">
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <label class="form-label">Vehicle Type</label>
+            <select class="form-select" 
+                required="" 
+                *ngIf="vehicleFilters$ | async; let vehicleFilters"
+                (change)="onVehicleTypeChange($event)">
+                <option value="">Choose...</option>
+                <option *ngFor="let vehicleType of vehicleFilters.vehicleTypes" value="{{vehicleType.key}}">{{vehicleType.value}}</option>
+            </select>
+        </div>
+        <div class="col-sm-12" *ngIf="data">
+            <label class="form-label">Vehicles</label>
+            <select class="form-select" 
+                required=""
+                formControlName="itemId">
+                <option value="">Choose...</option>
+                <option *ngFor="let vehicle of data.vehicles" value="{{vehicle.id}}">{{vehicle.make}} {{vehicle.model}} {{vehicle.pricePerDay}} € per day</option>
+            </select>
+        </div>
+    </div>
+
+</ng-container>

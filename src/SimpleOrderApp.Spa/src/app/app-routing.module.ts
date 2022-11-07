@@ -10,6 +10,10 @@ export const routes: Routes = [
         component: OrderListComponent, 
         resolve: { data: OrderListResolver },
         loadChildren: () => import("./order-list/order-list.module").then(m => m.OrderListModule)
+    },
+    {
+        path: "new-order",
+        loadChildren: () => import("./new-order/new-order.module").then(m => m.NewOrderModule)
     }
 ];
 

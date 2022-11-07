@@ -1,0 +1,85 @@
+<h1>New order</h1>
+
+<ng-container [formGroup]="formService.form">
+
+    <h4 class="mb-3">General Info</h4>
+
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <label for="customerName" class="form-label">Customer Name</label>
+            <input type="text" class="form-control" formControlName="customerName" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+                Valid first name is required.
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <label for="customerPhone" class="form-label">Customer Phone Number</label>
+            <input type="text" class="form-control" formControlName="customerPhone" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+                Valid last name is required.
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <label for="customerPhone" class="form-label">Start Date</label>
+            <!-- <mat-form-field appearance="fill">
+
+                <input matInput [matDatepicker]="picker" formControlName="startDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field> -->
+
+            <input type="text" class="form-control" formControlName="startDate" placeholder="" value="" required="" placeholder="MM/DD/YYYY" />
+            <div class="invalid-feedback">
+                Valid last name is required.
+            </div>
+        </div>
+    </div>  
+
+    <hr class="my-4">
+
+    <h4 class="mb-3">Select an Order Item</h4>
+
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <label for="orderTypeId" class="form-label">Order Type</label>
+            <select formControlName="orderTypeId" class="form-select" required="" *ngIf="orderTypes$ | async; let orderTypes">
+                <option value="">Choose...</option>
+                <option *ngFor="let orderType of orderTypes" value="{{orderType.key}}">{{orderType.value}}</option>
+            </select>
+        </div>
+        <div class="col-sm-6"></div>
+
+        <ng-container *ngIf="currentOrderType$ | async; let currentOrderType">
+          <app-vehicle-order *ngIf="currentOrderType === OrderTypeEnum.Vehicles" 
+            [form]="formService.form">
+          </app-vehicle-order>
+        </ng-container>
+
+        <!-- <div class="col-sm-6">
+            <label for="customerPhone" class="form-label">Customer Phone Number</label>
+            <input type="text" class="form-control" formControlName="customerPhone" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+                Valid last name is required.
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <label for="customerPhone" class="form-label">Start Date</label>
+            <input type="text" class="form-control" formControlName="startDate" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+                Valid last name is required.
+            </div>
+        </div> -->
+    </div>  
+
+    <hr class="my-4">
+
+    <button class="w-100 btn btn-primary btn-lg" 
+        type="button"
+        (click)="onSubmitClick()">
+        Place Order
+    </button>
+
+</ng-container>
