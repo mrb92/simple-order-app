@@ -1,8 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Refit;
 
 using SimpleOrderApp.Application.Common.Interfaces;
+using SimpleOrderApp.Domain.Interfaces;
+using SimpleOrderApp.Infrastructure.ExternalApiIntegration;
 using SimpleOrderApp.Infrastructure.Persistence;
 
 namespace SimpleOrderApp.Infrastructure
@@ -13,6 +16,15 @@ namespace SimpleOrderApp.Infrastructure
             IConfiguration configuration)
         {
             services.AddStorage(configuration);
+            services.AddRefit();
+
+            return services;
+        }
+
+        private static IServiceCollection AddRefit(this IServiceCollection services)
+        {
+            services.AddRefitClient(typeof(IExternalCurrenyApiIntegration));
+            services.AddScoped<IExternalApiIntegrationService, ExternalApiIntegrationService>();
 
             return services;
         }

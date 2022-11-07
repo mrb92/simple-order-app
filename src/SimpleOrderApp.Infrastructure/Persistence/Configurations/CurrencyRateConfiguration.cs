@@ -21,7 +21,7 @@ namespace SimpleOrderApp.Infrastructure.Persistence.Configurations
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_CurrencyRate_RefCurrency_To");
 
-            builder.Property(e => e.ExchangeRate).HasPrecision(18, 2);
+            builder.Property(e => e.ExchangeRate).HasPrecision(18, 6);
         }
     }
 }

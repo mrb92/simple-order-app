@@ -8,6 +8,6 @@
         /// <summary>
         /// UTC
         /// </summary>
-        DateTime Now { get; }
+        public DateTime Now => DateTime.UtcNow;
     }
 }
