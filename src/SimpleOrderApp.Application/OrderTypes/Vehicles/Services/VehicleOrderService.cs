@@ -54,7 +54,12 @@ namespace SimpleOrderApp.Application.OrderTypes.Services
             {
                 Id = order.Id,
                 Title = order.Title,
-                IsTankFull = order.VehicleOrder.IsTankFull
+                IsTankFull = order.VehicleOrder.IsTankFull,
+                IsCarIntact = order.VehicleOrder.IsCarIntact,
+                StartDate = order.StartDate,
+                EndDate = order.EndDate,
+                Total = order.Total,
+                PricePerDay = order.VehicleOrder.PricePerDay
             };
         }
     }

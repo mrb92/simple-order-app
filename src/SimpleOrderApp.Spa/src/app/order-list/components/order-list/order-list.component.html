@@ -13,7 +13,7 @@
       <tbody>
         <tr *ngFor="let order of data.orders">
           <td>{{order.id}}</td>
-          <td>{{order.title}}</td>
+          <td><a [routerLink]="order.typeId === OrderTypeEnum.Vehicles ? ['/orders/', order.id, 'vehicle'] : []">{{order.title}}</a></td>
           <td>{{order.customerName}}</td>
           <td>{{order.startDate | date}}</td>
           <td>{{order.endDate | date}}</td>

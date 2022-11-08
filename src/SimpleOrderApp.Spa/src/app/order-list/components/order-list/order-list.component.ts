@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Data } from "@angular/router";
+import { OrderTypeEnum } from "../../../custom-core/common/enums/orderTypeEnum";
 import { OrderListModel } from "../../models/order-list.model";
 
 @Component({
@@ -10,6 +11,7 @@ import { OrderListModel } from "../../models/order-list.model";
 export class OrderListComponent implements OnInit {
 
     public data: OrderListModel;
+    public OrderTypeEnum = OrderTypeEnum;
 
     constructor(private route: ActivatedRoute) { }
 

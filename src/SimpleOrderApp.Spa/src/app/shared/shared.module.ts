@@ -15,7 +15,7 @@ import { RouterModule } from "@angular/router";
     imports: [CommonModule, FormsModule, ReactiveFormsModule, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule, RouterModule],
     declarations: [HeaderComponent, FooterComponent],
     exports: [CommonModule, FormsModule, ReactiveFormsModule, 
-        HeaderComponent, FooterComponent, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule ],
+        HeaderComponent, FooterComponent, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule, RouterModule ],
     providers: [
         {provide: MAT_DATE_FORMATS, useValue: {useUtc: true}},
     ]

@@ -31,7 +31,7 @@ namespace SimpleOrderApp.Application.OrderDetail.Command.UpdateVehicleOrder
 
         public async Task<Unit> Handle(UpdateVehicleOrderCommand request, CancellationToken token)
         {
-            var order = await _context.Set<Order>().Include(o => o.VehicleOrder).FirstOrDefaultAsync(token);
+            var order = await _context.Set<Order>().Include(o => o.VehicleOrder).FirstOrDefaultAsync(o => o.Id == request.Id, token);
 
             order.EndDate = request.EndDate;
             order.VehicleOrder.IsCarIntact = request.IsCarIntact;
