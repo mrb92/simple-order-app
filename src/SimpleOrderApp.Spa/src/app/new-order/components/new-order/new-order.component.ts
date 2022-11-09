@@ -32,6 +32,7 @@ export class NewOrderComponent implements OnInit {
     }
 
     public onSubmitClick(): void {
+
         var formValue = this.formService.form.getRawValue();
 
         const newOrder: CreateOrderModel = {

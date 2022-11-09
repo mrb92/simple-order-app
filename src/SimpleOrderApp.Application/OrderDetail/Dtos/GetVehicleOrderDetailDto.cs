@@ -1,6 +1,4 @@
-﻿using SimpleOrderApp.Application.OrderDetail.Dtos;
-
-namespace SimpleOrderApp.Application.OrderDetail.Queries.GetVehicleOrderDetail
+﻿namespace SimpleOrderApp.Application.OrderDetail.Dtos
 {
     public class GetVehicleOrderDetailDto : GetOrderDetailDto
     {

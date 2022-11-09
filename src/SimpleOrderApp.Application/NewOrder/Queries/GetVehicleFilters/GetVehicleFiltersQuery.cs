@@ -8,19 +8,27 @@ using SimpleOrderApp.Domain.Entities.Referentials;
 
 namespace SimpleOrderApp.Application.Vehicles.Queries.GetVehicleFilters
 {
+    /// <summary>
+    /// Vehicle Filters Query
+    /// </summary>
     public class GetVehicleFiltersQuery : IRequest<GetVehicleFiltersDto>
     {
     }
 
+    /// <summary>
+    /// Vehicle Filters Query Handler
+    /// </summary>
     public class GetVehicleFiltersQueryHandler : IRequestHandler<GetVehicleFiltersQuery, GetVehicleFiltersDto>
     {
         private IApplicationDbContext _context;
 
+        ///
         public GetVehicleFiltersQueryHandler(IApplicationDbContext context)
         {
             _context = context;
         }
 
+        ///
         public async Task<GetVehicleFiltersDto> Handle(GetVehicleFiltersQuery request, CancellationToken token)
         {
             var vehicleTypes = await _context.ReadSet<RefVehicleType>().ToListAsync(token);

@@ -23,45 +23,56 @@
     <div class="row g-3" [formGroup]="formService.form">
         <div class="col-sm-6">
             <label for="customerName" class="form-label">End Date</label>
-            <input type="text" class="form-control" formControlName="endDate" placeholder="" value="" required="" placeholder="MM/DD/YYYY" />
+            <input type="date" class="form-control" 
+                formControlName="endDate" placeholder="" value="" required="" 
+                placeholder="MM/DD/YYYY" />
         </div>
         <div class="col-sm-6"></div>
-
         <div class="col-sm-6">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" formControlName="isTankFull">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Is Tank Full
-                </label>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" formControlName="isTankFull">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Is Tank Full
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="col-sm-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" formControlName="isCarIntact">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Is Car Intact
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="col-sm-6">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" formControlName="isCarIntact">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Is Car Intact
-                </label>
-            </div>
-        </div>
+        <div class="col-sm-6"></div>
 
         <div class="col-sm-6">
             <label for="customerPhone" class="form-label">Additional Cost</label>
             <input type="text" class="form-control" placeholder=""  formControlName="additionalCost">
         </div>
 
-        <div class="col-sm-12">
+        <div class="col-sm-12" *ngIf="totalCost">
             <label for="customerPhone" class="form-label">Total Cost</label>
             <div>
                 <label>{{totalCost}}</label>
             </div>
         </div>
     </div>
-    <hr class="my-4">
+    <ng-container *ngIf="data.endDate === null"> 
+        <hr class="my-4">
 
-    <button class="w-100 btn btn-primary btn-lg" 
-        type="button"
-        (click)="onSubmitClick()">
-        Return Order
-    </button>
+        <button class="w-100 btn btn-primary btn-lg"
+            type="button"
+            (click)="onSubmitClick()">
+            Return Order
+        </button>
+    </ng-container>
+    
 </ng-container>

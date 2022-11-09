@@ -4,12 +4,12 @@ using SimpleOrderApp.Application.Common.Interfaces;
 using SimpleOrderApp.Application.NewOrder.Dtos;
 using SimpleOrderApp.Application.NewOrder.Services.Interfaces;
 using SimpleOrderApp.Application.OrderDetail.Dtos;
-using SimpleOrderApp.Application.OrderDetail.Queries.GetVehicleOrderDetail;
 using SimpleOrderApp.Domain.Entities;
 using SimpleOrderApp.Domain.Enums.Orders;
 
 namespace SimpleOrderApp.Application.OrderTypes.Services
 {
+    //<inheritdoc/>
     public class VehicleOrderService : IVehicleOrderService
     {
         private readonly IApplicationDbContext _context;
@@ -22,6 +22,7 @@ namespace SimpleOrderApp.Application.OrderTypes.Services
             _context = context;
         }
 
+        //<inheritdoc/>
         public async Task<int> Create(CreateOrderDto createOrderDto, CancellationToken token)
         {
             var orderTypeId = (int)OrderTypeEnum.Vehicles;
@@ -45,6 +46,7 @@ namespace SimpleOrderApp.Application.OrderTypes.Services
             return order.Id;
         }
 
+        //<inheritdoc/>
         public async Task<GetOrderDetailDto> GetOrderDetail(int orderId, CancellationToken token)
         {
             var order = await _context.ReadSet<Order>()

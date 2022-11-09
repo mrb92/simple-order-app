@@ -20,9 +20,4 @@
     <ProjectReference Include="..\SimpleOrderApp.Domain\SimpleOrderApp.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="NewOrder\Queries\GetVehicleOrder\" />
-    <Folder Include="OrderDetail\Services\Interfaces\" />
-  </ItemGroup>
-
 </Project>

@@ -1,12 +1,13 @@
 ﻿using SimpleOrderApp.Application.NewOrder.Dtos;
 using SimpleOrderApp.Application.NewOrder.Services.Interfaces;
 using SimpleOrderApp.Domain.Entities;
-using SimpleOrderApp.Domain.Enums.Orders;
 
 namespace SimpleOrderApp.Application.NewOrder.Services
 {
+    //<inheritdoc/>
     public class CreateOrderCommonService : ICreateOrderCommonService
     {
+        //<inheritdoc/>
         public Order Create(CreateOrderDto createOrderDto, int orderTypeId)
         {
             var order = new Order

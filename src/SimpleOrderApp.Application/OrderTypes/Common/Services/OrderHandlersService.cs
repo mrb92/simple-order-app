@@ -5,6 +5,7 @@ using SimpleOrderApp.Domain.Enums.Orders;
 
 namespace SimpleOrderApp.Application.OrderTypes.Common.Services
 {
+    //<inheritdoc/>
     public class OrderHandlersService : IOrderHandlersService
     {
         private readonly IVehicleOrderService _vehicleOrderService;
@@ -28,11 +29,13 @@ namespace SimpleOrderApp.Application.OrderTypes.Common.Services
             _orderCreationHandlerMap.Add(OrderTypeEnum.Vehicles, _vehicleOrderService.Create);
         }
 
+        //<inheritdoc/>
         public Func<int, CancellationToken, Task<GetOrderDetailDto>> GetOrderDetailHandler(int orderTypeId)
         {
             return _orderDetailHandlerMap[(OrderTypeEnum)orderTypeId];
         }
 
+        //<inheritdoc/>
         public Func<CreateOrderDto, CancellationToken, Task<int>> GetOrderCreationHandler(int orderTypeId)
         {
             return _orderCreationHandlerMap[(OrderTypeEnum)orderTypeId];

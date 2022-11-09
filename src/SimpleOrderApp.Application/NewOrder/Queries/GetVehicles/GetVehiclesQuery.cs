@@ -6,20 +6,31 @@ using SimpleOrderApp.Domain.Entities;
 
 namespace SimpleOrderApp.Application.Vehicles.Queries.GetVehicles
 {
+    /// <summary>
+    /// Get Vehicles Query
+    /// </summary>
     public class GetVehiclesQuery : IRequest<GetVehiclesDto>
     {
+        /// <summary>
+        /// Vehicle Type
+        /// </summary>
         public int? TypeId { get; set; }
     }
 
+    /// <summary>
+    /// Get Vehicles Query Handler
+    /// </summary>
     public class GetVehiclesQueryHandler : IRequestHandler<GetVehiclesQuery, GetVehiclesDto>
     {
         private IApplicationDbContext _context;
 
+        ///
         public GetVehiclesQueryHandler(IApplicationDbContext context)
         {
             _context = context;
         }
 
+        ///
         public async Task<GetVehiclesDto> Handle(GetVehiclesQuery request, CancellationToken token)
         {
             var vehiclesQuery = _context.ReadSet<Vehicle>();

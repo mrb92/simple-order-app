@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleOrderApp.WebApi", "src\SimpleOrderApp.WebApi\SimpleOrderApp.WebApi.csproj", "{40C2ABB8-915D-4CAE-A42C-EF6F5B56280C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleOrderApp.WebApi", "src\SimpleOrderApp.WebApi\SimpleOrderApp.WebApi.csproj", "{40C2ABB8-915D-4CAE-A42C-EF6F5B56280C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleOrderApp.Domain", "src\SimpleOrderApp.Domain\SimpleOrderApp.Domain.csproj", "{15A47216-AB67-4835-AAF1-D469EA96E3AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleOrderApp.Domain", "src\SimpleOrderApp.Domain\SimpleOrderApp.Domain.csproj", "{15A47216-AB67-4835-AAF1-D469EA96E3AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleOrderApp.Application", "src\SimpleOrderApp.Application\SimpleOrderApp.Application.csproj", "{0C7FE1F1-6EE6-42C8-98D7-BCE1D5AA2589}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleOrderApp.Application", "src\SimpleOrderApp.Application\SimpleOrderApp.Application.csproj", "{0C7FE1F1-6EE6-42C8-98D7-BCE1D5AA2589}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleOrderApp.Common", "src\SimpleOrderApp.Common\SimpleOrderApp.Common.csproj", "{062B422B-3582-4ABC-A691-C337826E3F08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleOrderApp.Common", "src\SimpleOrderApp.Common\SimpleOrderApp.Common.csproj", "{062B422B-3582-4ABC-A691-C337826E3F08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleOrderApp.Infrastructure", "src\SimpleOrderApp.Infrastructure\SimpleOrderApp.Infrastructure.csproj", "{A81A8FE5-22F6-48DD-A348-EF8B7E9620E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleOrderApp.Infrastructure", "src\SimpleOrderApp.Infrastructure\SimpleOrderApp.Infrastructure.csproj", "{A81A8FE5-22F6-48DD-A348-EF8B7E9620E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

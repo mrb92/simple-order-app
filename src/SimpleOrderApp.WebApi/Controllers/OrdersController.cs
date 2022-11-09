@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 using SimpleOrderApp.Application.Common.Queries.GetOrderTypes;
-using SimpleOrderApp.Application.ListOrder.Queries.List;
+using SimpleOrderApp.Application.ListOrder.Queries.GetOrders;
 using SimpleOrderApp.Application.NewOrder.Commands.Create;
 using SimpleOrderApp.Application.OrderDetail.Command.UpdateVehicleOrder;
 using SimpleOrderApp.Application.OrderDetail.Dtos;
@@ -11,6 +11,9 @@ using SimpleOrderApp.WebApi.Base;
 
 namespace SimpleOrderApp.WebApi.Controllers
 {
+    /// <summary>
+    /// Orders Controller
+    /// </summary>
     [ApiController]
     [ApiExplorerSettings(IgnoreApi = false)]
     [Route("api/orders")]

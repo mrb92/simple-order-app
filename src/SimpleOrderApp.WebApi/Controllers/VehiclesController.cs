@@ -7,6 +7,9 @@ using SimpleOrderApp.WebApi.Base;
 
 namespace SimpleOrderApp.WebApi.Controllers
 {
+    /// <summary>
+    /// Vehicles Controller
+    /// </summary>
     [ApiController]
     [ApiExplorerSettings(IgnoreApi = false)]
     [Route("api/vehicles")]
