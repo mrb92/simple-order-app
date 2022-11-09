@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.11" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.10" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
     <PackageReference Include="NUnit" Version="3.13.3" />
@@ -20,7 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\SimpleOrderApp.WebApi\SimpleOrderApp.WebApi.csproj" />
+    <ProjectReference Include="..\SimpleOrderApp.Application\SimpleOrderApp.Application.csproj" />
+    <ProjectReference Include="..\SimpleOrderApp.WebApi\SimpleOrderApp.WebApi.csproj" />
   </ItemGroup>
 
 </Project>
