@@ -46,7 +46,7 @@ namespace SimpleOrderApp.WebApi.Tests
 
             Assert.NotNull(response);
 
-            response.EnsureSuccessStatusCode();
+            Assert.True(response.IsSuccessStatusCode);
         }
 
         [Test]
@@ -60,7 +60,7 @@ namespace SimpleOrderApp.WebApi.Tests
 
             Assert.NotNull(response);
 
-            response.EnsureSuccessStatusCode();
+            Assert.True(response.IsSuccessStatusCode);
         }
 
         [Test]
@@ -74,7 +74,7 @@ namespace SimpleOrderApp.WebApi.Tests
 
             Assert.NotNull(response);
 
-            response.EnsureSuccessStatusCode();
+            Assert.True(response.IsSuccessStatusCode);
         }
 
         [Test]
@@ -100,40 +100,12 @@ namespace SimpleOrderApp.WebApi.Tests
             Assert.True(response.IsSuccessStatusCode);
         }
 
-        private async Task SetTestData()
-        {
-            var scope = _factory.Server.Services.CreateScope();
-
-            var dbContext = scope.ServiceProvider.GetService<ApplicationDbContext>();
-
-            if (!dbContext.RefVehicleType.Any())
-                dbContext.RefVehicleType.Add(new RefVehicleType { Id = 1, Name = "Truck" });
-
-            if (!dbContext.Vehicle.Any())
-                dbContext.Vehicle.Add(new Vehicle { Id = 1, Make = "BMW", Model = "3", PricePerDay = 30, TypeId = 3 });
-
-            if (!dbContext.RefOrderType.Any())
-                dbContext.RefOrderType.Add(new RefOrderType { Id = 1, Name = "Vehicles" });
-
-            if (!dbContext.Order.Any())
-                dbContext.Order.Add(new Order { 
-                Id = 1, 
-                Title = "Test order", 
-                CustomerName = "John Doe", 
-                CustomerPhoneNumber = "000-000-000", 
-                OrderTypeId = 1, 
-                StartDate = new DateTime(), 
-                VehicleOrder = new VehicleOrder { VehicleId = 1, PricePerDay = 20, } 
-            });
-
-            await dbContext.SaveChangesExAsync();
-        }
-
         [Test]
         public async Task UpdateOrder_Test()
         {
             var client = _factory.CreateClient();
 
+            await SetTestData();
 
             var response = await client.PutAsJsonAsync("api/orders/vehicle-order", new UpdateVehicleOrderCommand
             {
@@ -145,7 +117,37 @@ namespace SimpleOrderApp.WebApi.Tests
 
             Assert.NotNull(response);
 
-            response.EnsureSuccessStatusCode();
+          Assert.True(response.IsSuccessStatusCode);
         }
-    }
+
+        private async Task SetTestData()
+        {
+          var scope = _factory.Server.Services.CreateScope();
+
+          var dbContext = scope.ServiceProvider.GetService<ApplicationDbContext>();
+
+          if (!dbContext.RefVehicleType.Any())
+            dbContext.RefVehicleType.Add(new RefVehicleType { Id = 1, Name = "Truck" });
+
+          if (!dbContext.Vehicle.Any())
+            dbContext.Vehicle.Add(new Vehicle { Id = 1, Make = "BMW", Model = "3", PricePerDay = 30, TypeId = 3 });
+
+          if (!dbContext.RefOrderType.Any())
+            dbContext.RefOrderType.Add(new RefOrderType { Id = 1, Name = "Vehicles" });
+
+          if (!dbContext.Order.Any())
+            dbContext.Order.Add(new Order
+            {
+              Id = 1,
+              Title = "Test order",
+              CustomerName = "John Doe",
+              CustomerPhoneNumber = "000-000-000",
+              OrderTypeId = 1,
+              StartDate = new DateTime(),
+              VehicleOrder = new VehicleOrder { VehicleId = 1, PricePerDay = 20, }
+            });
+
+          await dbContext.SaveChangesExAsync();
+        }
+  }
 }
